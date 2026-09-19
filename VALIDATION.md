@@ -13,3 +13,7 @@ The initial notebook classifier was reproduced with the supplied `Non_Parametric
 This reproduces the original split, not a leakage-free estimate of generalization. Deduplication or grouping equivalent questions before splitting is required for a stronger evaluation. No claim is made that all statistical execution functions are correct; those remain under review.
 
 Environment: Python 3.12, scikit-learn 1.9.1. Raw data is not distributed.
+
+## Statistical execution review
+
+The legacy Wilcoxon routine overrides the supplied alpha and uses a reversed critical-value comparison for the minimum signed-rank statistic. Its output must not be relied on for inferential conclusions. The question classifier result above does not validate these test-execution routines. Use an independently validated statistical implementation with explicit alternatives and correctly paired observations before reporting conclusions.
