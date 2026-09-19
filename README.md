@@ -14,9 +14,9 @@ Python, pandas, NumPy, SciPy, scikit-learn, and Jupyter.
 
 ## Project status
 
-This is a research prototype, not a validated statistical calculator. The original saved classifier evaluation reported 0.9259 accuracy on 27 examples; this result has not been reproduced here and should not be interpreted as a general performance guarantee. Saved notebook outputs were removed for a clean review copy.
+This is a research prototype, not a validated statistical calculator. The original saved classifier evaluation reported 0.9259 accuracy on 27 examples; this result has now been reproduced locally; see [validation notes](VALIDATION.md) and should not be interpreted as a general performance guarantee. Saved notebook outputs were removed for a clean review copy.
 
-The Wilcoxon decision logic requires correction and comparison with SciPy before results should be relied on. Dataset-dependent evaluation remains pending.
+The Wilcoxon decision logic requires correction and comparison with SciPy before results should be relied on. The initial classifier was reproduced; validation of the statistical execution functions remains pending.
 
 ## Required data
 
@@ -44,3 +44,7 @@ Dependencies are listed from imports and are not yet version-pinned through a re
 ## Author
 
 Harshil Prashant Shah · [Portfolio](https://harshil-prashant-shah.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/harshilpshah/)
+
+## Local dataset configuration
+
+See [DATA_SETUP.md](DATA_SETUP.md). Required datasets have been located in the author’s local materials and remain excluded from GitHub. The notebook now uses `PROJECT_DATA_DIR` or the local `data/` directory instead of fixed Colab paths. Full pipeline validation is still in progress.
