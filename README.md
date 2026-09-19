@@ -1,54 +1,76 @@
-# Non-Parametric Test Prediction
+![Statistical Test Prediction](assets/header.svg)
 
-An academic notebook exploring how natural-language problem descriptions can guide the selection and execution of non-parametric statistical tests.
+<div align="center">
 
-## What it contains
+**From a written question to a statistical method.**
 
-- TF-IDF text features and a decision-tree classifier for test selection.
-- Implementations for runs, Wilcoxon signed-rank, and Mann–Whitney tests.
-- Individual experiments and a combined workflow in the final code cell.
+Python · scikit-learn · SciPy · TF-IDF · Decision Trees
 
-## Stack
+[Portfolio](https://harshil-prashant-shah.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/harshilpshah/) · [Explore the code](#repository-guide)
 
-Python, pandas, NumPy, SciPy, scikit-learn, and Jupyter.
+</div>
 
-## Project status
+---
 
-This is a research prototype, not a validated statistical calculator. The original saved classifier evaluation reported 0.9259 accuracy on 27 examples; this result has now been reproduced locally; see [validation notes](VALIDATION.md) and should not be interpreted as a general performance guarantee. Saved notebook outputs were removed for a clean review copy.
+## What this project explores
 
-The Wilcoxon decision logic requires correction and comparison with SciPy before results should be relied on. The initial classifier was reproduced; validation of the statistical execution functions remains pending.
+Selecting a non-parametric test from a natural-language problem description, then exploring the calculations behind runs, Wilcoxon signed-rank, and Mann–Whitney U tests.
 
-## Required data
+### Core components
 
-The original notebook references these files, which are not included:
+- TF-IDF unigram and bigram features for question text.
+- Decision-tree classification of test type.
+- Lookup of problem statements by serial number.
+- Experimental test-execution routines and critical-value tables.
 
-- `Non_Parametric_combined.csv`
-- `ARJ SIR DATASET.xlsx`
-- `runs_test_critical_values_complete.csv`
-- `z_table_complete.csv`
-- `p_critical_values.csv`
+## Workflow
 
-The notebook currently uses `/content/` paths from Google Colab. Supply the original data and update those paths for your environment. Do not run all cells until the data and test logic have been checked.
+```mermaid
+flowchart LR
+    A[Problem description] --> B[TF-IDF features]
+    B --> C[Decision-tree recommendation]
+    C --> D[Review assumptions and data]
+    D --> E[Experimental test calculations]
+```
 
-## Local setup
+## Reproduced result
 
-```sh
+**25 of 27 test examples correctly classified (92.59%)** using the original random split and classifier settings.
+
+This is a reproduction of the original experiment, not a leakage-free estimate: the 107-record dataset contains 23 duplicate questions, and one question occurs in both training and test sets. See [VALIDATION.md](VALIDATION.md) for the exact setup and limitations.
+
+## Run locally
+
+```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 jupyter lab notebooks/statistical_test_prediction.ipynb
 ```
 
-Dependencies are listed from imports and are not yet version-pinned through a reproduced environment.
+On Windows, activate with `.venv\Scripts\activate`. Place the five authorized input files in `data/`, or set `PROJECT_DATA_DIR`. The notebook checks their presence before running. See [DATA_SETUP.md](DATA_SETUP.md).
 
-## Author
+## Repository guide
 
-Harshil Prashant Shah · [Portfolio](https://harshil-prashant-shah.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/harshilpshah/)
+- `notebooks/statistical_test_prediction.ipynb` — classifier and test experiments.
+- `DATA_SETUP.md` — local dataset instructions.
+- `VALIDATION.md` — reproduced classifier result and caveats.
+- `requirements.txt` — Python dependencies.
 
-## Local dataset configuration
+## Interpretation and limitations
 
-See [DATA_SETUP.md](DATA_SETUP.md). Required datasets have been located in the author’s local materials and remain excluded from GitHub. The notebook now uses `PROJECT_DATA_DIR` or the local `data/` directory instead of fixed Colab paths. Full pipeline validation is still in progress.
+A predicted test name does not establish that its assumptions hold. The original statistical calculation routines need further comparison against reference implementations, particularly Wilcoxon decision logic, ties, zero differences, and tail conventions. Use the notebook as a research prototype; do not treat all computed decisions as validated results.
 
-## Research reference
+## Research
 
-[Chapter on Springer](https://link.springer.com/chapter/10.1007/978-3-032-12990-1_27) — project reference supplied by the author. Publisher or Drive access conditions may apply.
+[Read the associated paper or manuscript](https://link.springer.com/chapter/10.1007/978-3-032-12990-1_27). This reference was supplied by the author; publisher or Drive access conditions may apply. The paper and this repository may represent different project stages.
+
+## About the author
+
+**Harshil Prashant Shah** · MS in Management Information Systems, Texas A&M University.
+
+[Portfolio](https://harshil-prashant-shah.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/harshilpshah/) · [GitHub](https://github.com/harshilshah250504)
+
+## Data and reuse
+
+Local datasets, credentials, and third-party research PDFs are not included. No blanket license is granted over third-party material. Refer to the original sources for their terms before redistributing data or publications.
