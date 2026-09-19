@@ -48,3 +48,7 @@ Harshil Prashant Shah · [Portfolio](https://harshil-prashant-shah.vercel.app/) 
 ## Local dataset configuration
 
 See [DATA_SETUP.md](DATA_SETUP.md). Required datasets have been located in the author’s local materials and remain excluded from GitHub. The notebook now uses `PROJECT_DATA_DIR` or the local `data/` directory instead of fixed Colab paths. Full pipeline validation is still in progress.
+
+## Research reference
+
+[Chapter on Springer](https://link.springer.com/chapter/10.1007/978-3-032-12990-1_27) — project reference supplied by the author. Publisher or Drive access conditions may apply.
